@@ -1,6 +1,6 @@
 package com.footprint.omsproductmgmtservice.assembler;
 
-import com.footprint.omsproductmgmtservice.controller.CategoryController;
+import com.footprint.omsproductmgmtservice.controller.ProductController;
 import com.footprint.omsproductmgmtservice.entity.Product;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
@@ -16,7 +16,7 @@ public class ProductModelAssembler implements RepresentationModelAssembler<Produ
     public EntityModel<Product> toModel(Product product) {
 
         return EntityModel.of(product,
-                linkTo(methodOn(CategoryController.class).category(product.getId())).withSelfRel(),
-                linkTo(methodOn(CategoryController.class).listAll()).withRel("products"));
+                linkTo(methodOn(ProductController.class).product(product.getId())).withSelfRel(),
+                linkTo(methodOn(ProductController.class).listAll()).withRel("products"));
     }
 }
