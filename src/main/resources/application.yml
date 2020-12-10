@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: product-management-service
+  datasource:
+    username: cl54-oms-org
+    password: JMdfHFr!6
+    url: jdbc:mysql://217.199.187.192:3306/cl54-oms-org?autoReconnect=true&createDatabaseIfNotExist=true&useSSL=false&timeZone=CAT
+    hikari:
+      maximum-pool-size: 19
+      minimum-idle: 7
+  jpa:
+    properties:
+      org:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: https://order-mgmt-service-registry.herokuapp.com/eureka/
+server:
+  servlet:
+    context-path: /product
