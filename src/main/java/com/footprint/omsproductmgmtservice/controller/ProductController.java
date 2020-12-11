@@ -39,13 +39,14 @@ public class ProductController {
         EntityModel<Product> productEntityModel = productModelAssembler.toModel(productRepository.save(product));
         return ResponseEntity.created(productEntityModel.getRequiredLink(IanaLinkRelations.SELF).toUri()).body(productEntityModel);
     }
+    //TODO fix update product bug
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@RequestBody Product product, @PathVariable Long id){
         Product updatedProduct = productRepository.findById(id).map(prod -> {
+            prod.setOrganisationId(product.getOrganisationId());
             prod.setName(product.getName());
             prod.setDescription(product.getDescription());
             prod.setPrice(product.getPrice());
-            prod.setOrganisationId(product.getOrganisationId());
             prod.setImageURL(product.getImageURL());
             prod.setCategories(product.getCategories());
             return productRepository.save(prod);
