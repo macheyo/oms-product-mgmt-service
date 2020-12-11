@@ -16,7 +16,8 @@ import java.util.Set;
 @Audited
 @AllArgsConstructor
 @NoArgsConstructor
-public class Product extends BaseEntity{
+public class Product extends BaseEntity {
+    private Long organisationId;
     private String name;
     private String description;
     private Double price;
