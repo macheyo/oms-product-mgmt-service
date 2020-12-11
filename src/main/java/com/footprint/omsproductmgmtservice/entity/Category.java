@@ -6,9 +6,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.envers.Audited;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import java.util.Set;
 
 @Entity
 @Table
@@ -19,6 +17,5 @@ import java.util.Set;
 public class Category extends BaseEntity{
     private String name;
     private String description;
-    @ManyToMany(mappedBy = "categories")
-    Set<Product> organisations;
+
 }
