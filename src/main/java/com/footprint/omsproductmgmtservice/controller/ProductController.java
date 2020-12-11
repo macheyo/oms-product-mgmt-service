@@ -47,6 +47,7 @@ public class ProductController {
             prod.setPrice(product.getPrice());
             prod.setOrganisationId(product.getOrganisationId());
             prod.setImageURL(product.getImageURL());
+            prod.setCategories(product.getCategories());
             return productRepository.save(prod);
         }).orElseGet(()->{
             product.setId(id);
